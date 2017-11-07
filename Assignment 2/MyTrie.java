@@ -2,9 +2,9 @@
  * This is class implements a trie that holds a set of strings.
  * MyTrie stores stores nodes using class TreeNode
  * 
- * Name:   
- * Student Number: 
- * Uottawa Email: 
+ * Name:   		Nicholas Broadbent
+ * Student Number: 	8709720
+ * Uottawa Email: 	nbroa025@uottawa.ca
  * 
  *
  */
@@ -15,7 +15,7 @@ public class MyTrie {
 
 	private int numNodes;
 
-    // Constructor. Note that an empty trie (no strings added) contains the root node 
+    	// Constructor. Note that an empty trie (no strings added) contains the root node 
 	public MyTrie() {
 		root = new TreeNode(null, null, null,false); 
 		numNodes=1;
@@ -23,14 +23,10 @@ public class MyTrie {
 
 	// Method to be implemented by you. See handout part 1A
 	public boolean insert(String s) {
-		// ***** method code to be added in this class *****
-		// now we just have a dummy that prints  message and returns true.
-		
 		TreeNode curr = root;
 		TreeNode child;
 		int len = s.length();
 		
-		// If tree is empty.
 		for (int i = 0; i < len; i++){
 			if (s.charAt(i) == '0'){
 				child = curr.getLeftChild();
@@ -43,7 +39,7 @@ public class MyTrie {
 			}
 			else{
 				child = curr.getRightChild();
-				
+				// Create right child if it does not exist.
 				if (child == null){
 					child = new TreeNode(curr, null, null, false);
 					curr.setRightChild(child);
@@ -75,12 +71,9 @@ public class MyTrie {
 		return parent.getIsUsed();
 	}
 
-	
-
 	// Method to be implemented by you. See handout part 1A	
 	public void printStringsInLexicoOrder() {
 		printStringsInLexicoOrder(root, "");
-
 	}
 	private void printStringsInLexicoOrder(TreeNode N, String s) {
 		if (N != null) {
@@ -91,7 +84,6 @@ public class MyTrie {
 			printStringsInLexicoOrder(N.getRightChild(), s + "1");
 		}
 	}
-	
 	
 	
 	// the following method that calls its recursive counterpart
@@ -112,8 +104,6 @@ public class MyTrie {
 		System.out.print(")");
 	}
 	
-
-	
 	public TreeNode root() { // not to be changed
 		return root;
 	}
@@ -121,6 +111,4 @@ public class MyTrie {
 	public int numNodes() { // not to be changed
 		return numNodes;
 	}
-
-
 }
