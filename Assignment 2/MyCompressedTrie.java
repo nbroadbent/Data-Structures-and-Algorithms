@@ -3,9 +3,9 @@
  * This is class implements a compressed trie that holds a set of strings.
  * MyCompressedTrie stores nodes using class TreeNodeWithData
  * 
- * Name:   
- * Student Number: 
- * Uottawa Email: 
+ * Name: 			Nicholas Broadbent
+ * Student Number: 	8709720
+ * Uottawa Email: 	nbroa025@uottawa.ca
  * 
  *
  */
@@ -26,11 +26,10 @@ public class MyCompressedTrie {
 	// 
 	public MyCompressedTrie(MyTrie trie) { 
 		this();
-		createCompressedTrie(trie.root(), root, -1, "");
-		//removeRedundant(trie.root(), root, -1, "");
+		MyCompressedTrie(trie.root(), root, -1, "");
 	}
 	
-	private void createCompressedTrie(TreeNode N, TreeNodeWithData C, int dir, String s){	
+	private void MyCompressedTrie(TreeNode N, TreeNodeWithData C, int dir, String s){	
 		if (N == null)
 			return;
 		
@@ -43,10 +42,9 @@ public class MyCompressedTrie {
 		if (!N.getIsUsed() && dir != -1){
 			// If both children are used, Node is safe.
 			if (left != null && right != null){
-				//if (left.getIsUsed() && right.getIsUsed())
-					add = true;	
+				add = true;	
 			}
-			if (!add){
+			else{
 				if (left != null){
 					if (dir == 0)
 						N.getParent().setLeftChild(left);
@@ -74,9 +72,8 @@ public class MyCompressedTrie {
 				C.setRightChild(t);
 			numNodes++;
 		}
-		
-		createCompressedTrie(left, t, 0, s + "0");
-		createCompressedTrie(right, t, 1, s + "1");
+		MyCompressedTrie(left, t, 0, s + "0");
+		MyCompressedTrie(right, t, 1, s + "1");
 	}
 
 	// Method to be implemented by you. See handout part 2A	
@@ -90,7 +87,6 @@ public class MyCompressedTrie {
 			
 			printStringsInLexicoOrder(N.getLeftChild());
 			printStringsInLexicoOrder(N.getRightChild());
-
 		}
 	}
 
@@ -108,13 +104,10 @@ public class MyCompressedTrie {
 			printInOrder(N.getLeftChild());
 			System.out.print(((TreeNodeWithData)N).getData());
 			printInOrder(N.getRightChild());
-
 		}
 		System.out.print(")");
 	}
-	
-
-	
+		
 	public int numNodes() {
 		return numNodes;	
 	}
